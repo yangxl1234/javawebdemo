@@ -17,37 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-@WebServlet(urlPatterns ="/userLogin")
+@WebServlet(urlPatterns ="/userLogin")//登录servlet
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        response.setContentType("text/html;charset=utf-8");
-//        response.setCharacterEncoding("UTF-8");
-//        PrintWriter writer=response.getWriter();
-//        Map map=new HashMap<>();
-//        //1.获取用户输入
-//        String userName=request.getParameter("username");
-//        String password=request.getParameter("password");
-//        if(userName!=null&&password!=null)
-//        {
-//            //2.创建对象
-//            User u=new User(userName,password);
-//            //3.验证密码
-//            UserDao userDao=new UserDaoImpl();
-//            boolean result=userDao.checkLogin(u);
-//            if(result){
-//                map.put("result","ok");
-//                map.put("msg","登录成功");
-//            }else{
-//                map.put("result","false");
-//                map.put("msg","登录失败");
-//            }
-//        }else{
-//            map.put("result","false");
-//            map.put("msg","登录失败");
-//        }
-//        writer.write(new Gson().toJson(map));
-//    }
         response.setContentType("text/html;charset=UTF-8");
         String userName = request.getParameter("username");
         String password = request.getParameter("password");

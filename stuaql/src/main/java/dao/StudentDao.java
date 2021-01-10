@@ -1,7 +1,7 @@
-package edu.njfu.sas.dao;
+package dao;
 
-import edu.njfu.sas.model.Student;
-import edu.njfu.sas.util.PageUtil;
+import model.Student;
+import util.PageUtil;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,7 +12,6 @@ public interface StudentDao {
     boolean saveStudent(Student s);
     public Student getStudentByNo(String stuno);
     public boolean updatestudent(Student s);
-    public List<Student> getStudentByPaging(PageUtil pageUtil,int currentPage,int pageSize) throws SQLException;
+    public List<Student> getStudentByPaging(PageUtil pageUtil, int currentPage, int pageSize) throws SQLException;
     long totalRecords() throws SQLException;
-    public boolean deleteStu(String stuname);
 }

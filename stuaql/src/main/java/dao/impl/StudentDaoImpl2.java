@@ -1,7 +1,7 @@
-package edu.njfu.sas.dao.impl;
+package dao.impl;
 
 //import com.sun.tools.javac.tree.JCTree;
-import edu.njfu.sas.dao.StudentDao;
+import dao.StudentDao;
 import edu.njfu.sas.model.Student;
 import edu.njfu.sas.util.C3p0Util;
 import edu.njfu.sas.util.PageUtil;
@@ -70,11 +70,4 @@ public class StudentDaoImpl2 implements StudentDao {
         }
         return -1;
     }
-
-    @Override
-    public boolean deleteStu(String stuname) {
-        return false;
-    }
-
-
 }

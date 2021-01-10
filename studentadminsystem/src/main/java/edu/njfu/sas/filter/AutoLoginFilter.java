@@ -34,7 +34,6 @@ public class AutoLoginFilter implements Filter {
                 request.getSession().setAttribute("user",u);
             }
         }
-        //放行
         filterChain.doFilter(request,servletResponse);
     }
 

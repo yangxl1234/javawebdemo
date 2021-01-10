@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-
 @WebFilter(urlPatterns = "/*")
 public class CharacterFilter implements Filter {
     @Override
@@ -20,11 +19,10 @@ public class CharacterFilter implements Filter {
         HttpServletRequest request=(HttpServletRequest)servletRequest;
         HttpServletResponse response=(HttpServletResponse)servletResponse;
         request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=utf-8");
+        //包装request对象，增强getParameter()功能，中文不乱码
         CharacterRequest characterRequest = new CharacterRequest(request);
-        //4.放行
         filterChain.doFilter(characterRequest,response);
-
     }
 
     @Override
@@ -33,14 +31,15 @@ public class CharacterFilter implements Filter {
     }
 }
 
-class CharacterRequest extends HttpServletRequestWrapper{
-    private HttpServletRequest request;//包装对象
+class CharacterRequest extends HttpServletRequestWrapper {
+    private HttpServletRequest request;
     public CharacterRequest(HttpServletRequest request) {
         super(request);
         this.request=request;
     }
-    @Override
-    public String getParameter(String name){
+
+
+    public String getParament(String name){
         String value=super.getParameter(name);
         if(value==null){
             return null;
@@ -48,11 +47,13 @@ class CharacterRequest extends HttpServletRequestWrapper{
         String method=super.getMethod();
         if(method.equalsIgnoreCase("get")){
             try {
-                value=new String(value.getBytes("iso-8859-1"),"utf-8");
+                value = new String(value.getBytes("iso-8859-1"), "utf-8");
             } catch (UnsupportedEncodingException e) {
                 throw new RuntimeException(e);
             }
         }
         return value;
+
     }
 }
+

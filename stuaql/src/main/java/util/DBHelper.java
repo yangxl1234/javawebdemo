@@ -1,4 +1,4 @@
-package edu.njfu.sas.util;
+package util;
 
 import java.io.InputStream;
 import java.io.Reader;
@@ -44,15 +44,6 @@ public class DBHelper {
 	 * 
 	 * @return
 	 */
-	public static Connection getConnection() {
-		Connection conn = null;
-		try {
-			conn = DriverManager.getConnection(URL, USER, PASSWORD);
-		} catch (SQLException e) {
-			System.out.println("数据库连接失败：" + e.getMessage());
-		}
-		return conn;
-	}
 	public Connection getConn() {
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASSWORD);

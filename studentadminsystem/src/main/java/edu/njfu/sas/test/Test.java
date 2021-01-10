@@ -37,31 +37,33 @@ public class Test {
 //        System.out.println(DbcpUtil.getDataSource().getConnection()==null);
         //System.out.println(new StudentDaoImpl2().getAllStudent());
         // System.out.println(new StudentDaoImpl2().totalRecords());
-        UserDao dao=new UserDaoImpl();
-        User u=new User("zhangsan","123456");
-        System.out.println(dao.checkLogin(u));
-        List list=new ArrayList<>();
-        list.add(1);
-        list.add("hello");
-        list.add(true);
-        list.add('A');
-        for(Object o:list){
-            System.out.println(o);
-        }
-        List<String> list1=new ArrayList<String>();
-        List<Student> list2=new ArrayList<>();
-        System.out.println(list1.getClass());
-        System.out.println(list2.getClass());
-        StudentDaoImpl sdao= new StudentDaoImpl();
-        String students=sdao.getAllStudent();
-        String json=new Gson().toJson(students);
-        Gson gson=new Gson();
-        Type type=new TypeToken<List<Student>>(){
-
-        }.getType();
-        List<Student> stus=(List<Student>)gson.fromJson(json,type);
-        for(Student s:stus){
-            System.out.println(s);
-        }
+//        UserDao dao=new UserDaoImpl();
+//        User u=new User("zhangsan","123456");
+//        System.out.println(dao.checkLogin(u));
+//        List list=new ArrayList<>();
+//        list.add(1);
+//        list.add("hello");
+//        list.add(true);
+//        list.add('A');
+//        for(Object o:list){
+//            System.out.println(o);
+//        }
+//        List<String> list1=new ArrayList<String>();
+//        List<Student> list2=new ArrayList<>();
+//        System.out.println(list1.getClass());
+//        System.out.println(list2.getClass());
+//        StudentDaoImpl sdao= new StudentDaoImpl();
+//        String students=sdao.getAllStudent();
+//        String json=new Gson().toJson(students);
+//        Gson gson=new Gson();
+//        Type type=new TypeToken<List<Student>>(){
+//
+//        }.getType();
+//        List<Student> stus=(List<Student>)gson.fromJson(json,type);
+//        for(Student s:stus){
+//            System.out.println(s);
+//        }
+//    }
+        System.out.println(new StudentDaoImpl().deleteStu("李四"));
     }
 }

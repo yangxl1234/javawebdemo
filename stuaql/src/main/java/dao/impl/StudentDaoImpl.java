@@ -1,14 +1,11 @@
-package edu.njfu.sas.dao.impl;
+package dao.impl;
 
 import com.google.gson.Gson;
-import edu.njfu.sas.dao.StudentDao;
-import edu.njfu.sas.model.Student;
-import edu.njfu.sas.util.DBHelper;
-import edu.njfu.sas.util.PageUtil;
+import dao.StudentDao;
+import model.Student;
+import util.DBHelper;
+import util.PageUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -155,21 +152,5 @@ public class StudentDaoImpl implements StudentDao {
         List<Object> query=dbHelper.query(sql,null);
         return (Long) ((Map)query.get(0)).get("count");
 
-    }
-
-    @Override
-    public boolean deleteStu(String stuname) {
-        String sql = "delete from tbl_student where stuname=?";
-        Connection conn = DBHelper.getConnection();
-        try {
-            PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, stuname);
-            int count = pst.executeUpdate();
-            pst.close();
-            return count>0?true:false;  //是否删除的判断
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
     }
 }
